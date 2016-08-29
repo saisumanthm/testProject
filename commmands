@@ -1,0 +1,100 @@
+#link
+https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
+
+#config
+$ git config --global user.name saisumanth
+$ git config --global user.email johndoe@example.com
+$ git config --global core.editor emacs
+
+#check config
+$ git config --list
+user.name=John Doe
+user.email=johndoe@example.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+
+$ git config user.name
+
+#getting help
+$ git help <verb>
+$ git <verb> --help
+$ man git-<verb>
+
+# git initilization
+If you’re starting to track an existing project in Git, you need to go to the project’s directory and type:
+$ git init
+
+##added files are tracked by git.  adding files
+$ git add *.c
+$ git add LICENSE
+$ git commit -m 'initial project version'
+
+##clone repo
+You clone a repository with 
+$git clone [url].
+For example, if you want to clone the Git linkable library called libgit2, you can do so like this:
+$ git clone https://github.com/libgit2/libgit2
+
+$ git clone https://github.com/libgit2/libgit2 mylibgit
+above command does the same thing as the previous one, but the target directory is called mylibgit
+
+#git status
+$ git status
+
+
+##Staging Modified Files, add files to make modified files to staging area
+$git add filename
+
+#git status short cut
+$ git status -s
+M README		#files modified
+MM Rakefile		#staged and then modified again, changes that are both staged and unstaged.
+A  lib/git.rb		#files added to staging area
+M  lib/simplegit.rb
+?? LICENSE.txt		#files not tracked
+
+##Ignoring Files
+Here is an example .gitignore file:
+$ cat .gitignore
+*.[oa]			# ignores all files of .o and .a 
+*~			# ignore all files with ~  , temp files
+
+# see modifications
+$git diff
+
+
+$ git diff --staged
+If you want to see what you’ve staged that will go into your next commit, you can use git diff --staged. This command compares your staged changes to your last commit:
+
+#commiting changes
+$ git commit
+-v option to git commit. Doing so also puts the diff of your change in the editor
+$git commit -v
+
+$ git commit -m "type you comments"
+
+##skipping staging area
+$git commit -a -m 'your comments'
+Adding the -a option to the git commit command makes Git automatically stage every file that is already tracked before doing the commit, letting you skip the git add part.
+
+#git remove , removes tracking status
+$ git rm filename
+
+#moving files
+$ git mv file_from file_to
+
+#view commit history
+$ git log
+$ git log -p -2
+One of the more helpful options is -p, which shows the difference introduced in each commit. You can also use -2, which limits the output to only the last two entries.
+
+$ git log --since=2.weeks
+#many options available 
+
+#commit changes to previous commit
+$ git commit --amend
+
+
+
